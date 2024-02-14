@@ -3,7 +3,7 @@ package sample.cafekiosk.spring.api.service.product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sample.cafekiosk.spring.api.controller.product.request.ProductCreateRequest;
+import sample.cafekiosk.spring.api.controller.product.request.ProductCreateServiceRequest;
 import sample.cafekiosk.spring.api.service.product.response.ProductResponse;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRepository;
@@ -30,7 +30,7 @@ public class ProductService {
     // 동시성 이슈
     // UUID
     @Transactional // cud를 메서드 단위에 필요에 따라 걸어준다.
-    public ProductResponse createProduct(ProductCreateRequest request) {
+    public ProductResponse createProduct(ProductCreateServiceRequest request) {
         final String nextProductNumber = createNextProductNumber();
 
         Product product = request.toEntity(nextProductNumber);

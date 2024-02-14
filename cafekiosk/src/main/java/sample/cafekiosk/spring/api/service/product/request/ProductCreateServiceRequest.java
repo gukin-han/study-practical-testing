@@ -1,13 +1,15 @@
-package sample.cafekiosk.spring.api.controller.product.request;
+package sample.cafekiosk.spring.api.service.product.request;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
 @Getter
-public class ProductCreateRequest {
+@NoArgsConstructor
+public class ProductCreateServiceRequest {
 
     private ProductType type;
     private ProductSellingStatus sellingStatus;
@@ -15,7 +17,7 @@ public class ProductCreateRequest {
     private int price;
 
     @Builder
-    private ProductCreateRequest(ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
+    private ProductCreateServiceRequest(ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
         this.type = type;
         this.sellingStatus = sellingStatus;
         this.name = name;
